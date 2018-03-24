@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 import SampleDataItem from '../containers/sample-data-item';
 
 export default class FavoriteMovies extends React.Component {

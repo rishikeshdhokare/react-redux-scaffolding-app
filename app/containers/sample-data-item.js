@@ -1,15 +1,14 @@
-import React from 'react'
-import {connect} from "react-redux"
-import { addToFavorites } from '../actions/sample'
-import SampleDataItem from '../components/SampleDataItem'
+import {connect} from "react-redux";
+import { addToFavorites } from '../actions/sample';
+import SampleDataItem from '../components/SampleDataItem';
 
-export const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
 	return {
 		data: state.sample.data
 	}
 }
 
-export const mapDispatchToProps = (dispatch, movie) => {
+const mapDispatchToProps = (dispatch, movie) => {
 	return {
 		onBtnClick : () => dispatch(addToFavorites(movie))
 	}

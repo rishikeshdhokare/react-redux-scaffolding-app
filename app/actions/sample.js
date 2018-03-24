@@ -1,7 +1,7 @@
-export const SAMPLE_ACTION = "SAMPLE_ACTION"
-export const REQUEST_SAMPLE_DATA = "REQUEST_SAMPLE_DATA"
-export const RECEIVE_SAMPLE_DATA = "RECEIVE_SAMPLE_DATA"
-export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
+export const SAMPLE_ACTION = "SAMPLE_ACTION";
+export const REQUEST_SAMPLE_DATA = "REQUEST_SAMPLE_DATA";
+export const RECEIVE_SAMPLE_DATA = "RECEIVE_SAMPLE_DATA";
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES";
 
 export function sampleAction() {
 	return {
