@@ -1,13 +1,11 @@
-import {Cmd, loop} from 'redux-loop'
-import sampleReducer from '../../app/reducers/sample'
-import {RECEIVE_SAMPLE_DATA, receiveSampleData, REQUEST_SAMPLE_DATA, SAMPLE_ACTION} from '../../app/actions/sample'
-import {companies} from '../../app/utils/index'
-import {fetchSampleData} from '../../app/effects/sample'
+import {Cmd, loop} from 'redux-loop';
+import sampleReducer from '../../app/reducers/sample';
+import {RECEIVE_SAMPLE_DATA, receiveSampleData, REQUEST_SAMPLE_DATA, SAMPLE_ACTION, ADD_TO_FAVORITES} from '../../app/actions/sample';
+import {companies} from '../../app/utils/index';
+import {fetchSampleData} from '../../app/effects/sample';
 
 describe('[Reducers] - Sample', () => {
-
 	test('should return initial state if no action matches any case in the reducer', () => {
-
 		const action = {
 			type   : '',
 			payload: {}
@@ -21,7 +19,6 @@ describe('[Reducers] - Sample', () => {
 	})
 
 	test('should handle "SAMPLE_ACTION" action type and return correct state', () => {
-
 		const action = {
 			type   : SAMPLE_ACTION,
 			payload: {}
@@ -36,7 +33,6 @@ describe('[Reducers] - Sample', () => {
 	})
 
 	test('should "REQUEST_SAMPLE_DATA" action type and return correct state', () => {
-
 		const action = {
 			type   : REQUEST_SAMPLE_DATA,
 			payload: {}
@@ -57,7 +53,6 @@ describe('[Reducers] - Sample', () => {
 	})
 
 	test('should "RECEIVE_SAMPLE_DATA" action type and return correct state', () => {
-
 		const data = {Search: [{foo: 'bar'}, {baz: 'test'}]}
 
 		const action = {
@@ -68,6 +63,21 @@ describe('[Reducers] - Sample', () => {
 		const state         = {name: null, data: []}
 		const newState      = sampleReducer(state, action)
 		const expectedState = {name: null, data: data.Search}
+		
+		expect(newState).toEqual(expectedState)
+	})
+
+	test('should "ADD_TO_FAVORITES" action type and return correct state', () => {
+		const movie = {"name": "Die Hard"};
+
+		const action = {
+			type   : ADD_TO_FAVORITES,
+			movie: movie
+		}
+
+		const state         = {name: null, data: [], favorites: []}
+		const newState      = sampleReducer(state, action)
+		const expectedState = {name: null, data: [], favorites: [movie]}
 		
 		expect(newState).toEqual(expectedState)
 	})

@@ -29,6 +29,9 @@ export default (state = {name: null, data: [], favorites: []}, action) => {
 			}
 
 		case ADD_TO_FAVORITES: 
+			console.log("favorti=", state.favorites);
+			console.log("action=", action);
+			
 			return {
 				...state,
 				favorites: [...state.favorites, action.movie]
